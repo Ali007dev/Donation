@@ -16,8 +16,14 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'number' => $this->number,
-            'last_files' => FileResource::collection($this->whenLoaded('files')),
-            'file_logs' => FileLogResource::collection($this->whenLoaded('fileLogs')),
+            'wallet' => $this->wallet,
+            'role' => $this->role,
+            'birthdate' => $this->birthdate,
+            'country' => $this->country,
+
+
+            // 'last_files' => FileResource::collection($this->whenLoaded('files')),
+            // 'file_logs' => FileLogResource::collection($this->whenLoaded('fileLogs')),
 
         ];
     }

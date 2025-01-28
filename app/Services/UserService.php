@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Services;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
+class UserService extends BaseService
+{
+    public function __construct(User $model)
+    {
+        parent::__construct($model);
+    }
+
+    public function chargeWallet($request){
+
+      $user =  User::where('id',Auth::user()->id)->first();
+
+      $user->update([
+            'wallet' =>$user->wallet + $request->amount
+      ]);
+      return $user;
+    }
+}
+

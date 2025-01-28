@@ -16,7 +16,7 @@ class User extends Authenticatable implements JWTSubject
     use Filterable;
 
 
-    protected $fillable =['name','password','email','number','role'];
+    protected $fillable =['name','password','email','number','role','wallet','country','birthdate'];
     protected $hidden =['password'];
     protected $filterable = [
         'name',

@@ -36,6 +36,8 @@ class AuthController extends Controller
             'password' => 'required|string|min:6',
             'role' => 'required|in:employee,user',
             'number' => 'string',
+            'country' => 'string',
+            'birthdate' => 'string',
 
         ]);
 
@@ -49,6 +51,8 @@ class AuthController extends Controller
             'email' => $request->email,
             'number' => $request->number,
             'role' => $request->role,
+            'country' => $request->country,
+            'birthdate' => $request->birthdate,
             'password' => Hash::make($request->password),
         ]);
 

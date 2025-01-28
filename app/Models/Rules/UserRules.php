@@ -8,11 +8,13 @@ class UserRules extends BaseRules
     protected function defineRules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'role' => 'required|in:employee,user',
+            'name' => 'string|max:255',
+            'role' => 'in:employee,user',
             'number' => 'string',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
+            'country' => 'string',
+            'birthdate' => 'string',
+            'email' => 'string|email|max:255|unique:users',
+            'password' => 'string|min:6',
         ];
     }
 

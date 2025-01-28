@@ -16,9 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('role');
             $table->string('email')->unique();
+            $table->decimal('wallet', 10, 2)->default(0);
             $table->string('number')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('country');
+            $table->date('birthdate');
+
             $table->rememberToken();
             $table->timestamps();
         });

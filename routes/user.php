@@ -4,7 +4,9 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// Route::feature('/',UserController::class);
+ Route::feature('/',UserController::class);
+  Route::put('/charge',[UserController::class,'chargeWallet']);
+
 // Route::get('/report/{user}',[UserController::class,'report'])
 // ->middleware('isAdminInGroup');
 
