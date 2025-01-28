@@ -34,6 +34,9 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
+            'role' => 'required|in:employee,user',
+            'number' => 'string',
+
         ]);
 
         if ($validator->fails()) {
@@ -45,6 +48,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'number' => $request->number,
+            'role' => $request->role,
             'password' => Hash::make($request->password),
         ]);
 

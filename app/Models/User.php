@@ -16,15 +16,12 @@ class User extends Authenticatable implements JWTSubject
     use Filterable;
 
 
-    protected $fillable =['name','password','email','number'];
+    protected $fillable =['name','password','email','number','role'];
     protected $hidden =['password'];
     protected $filterable = [
         'name',
     ];
 
-    protected $appends = [
-        'size',
-    ];
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
