@@ -51,6 +51,7 @@ abstract class BaseCRUDController extends Controller
 
     protected function create(Request $request)
     {
+
         $data = $this->createRequest()->validated();
         $res = $this->service->create($data);
         $this->refreshModel($res);

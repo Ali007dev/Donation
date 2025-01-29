@@ -1,12 +1,15 @@
 <?php
 namespace App\Models\Rules;
-class FileLogRules extends BaseRules
+class SubCategoryBranchRules extends BaseRules
 {
     // Define the rules specific to the model
     protected function defineRules(): array
     {
         return [
 
+            'sub_category_id'=>['numeric','exists:sub_categories,id'],
+            'name' => 'string',
+            'description' => 'string'
         ];
     }
 

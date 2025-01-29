@@ -11,17 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sub_categories', function (Blueprint $table) {
+        Schema::create('user_donations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constraint('categories')->cascadeOnDelete();
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->decimal('needed_amount', 10, 2);
-            $table->decimal('paid_amount', 10, 2)->default(0);
-            $table->string('status');
+            $table->foreignId('user_id')->constraint('users')->cascadeOnDelete();
+            $table->decimal('amount', 10, 2);
+            $table->morphs('donatable');
+            $table->enum('type',['monthly','weekly','once']);
             $table->date('date');
             $table->timestamps();
-
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sub_categories');
+        Schema::dropIfExists('user_donations');
     }
 };

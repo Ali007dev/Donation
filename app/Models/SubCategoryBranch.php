@@ -7,25 +7,26 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
 use App\Traits\Filterable;
 
-class Category extends Model
+class SubCategoryBranch extends Model
 {
     use HasFactory;
     use Filterable;
 
     protected $fillable = [
         'name',
-        'image'
-    ];
-
-    public $targetWith = [
-        'subCategory',
+        'description',
+        'sub_category_id'
     ];
 
     protected $filterable = [
         '',
     ];
 
-    public function subCategory(){
-        return $this->hasMany(SubCategory::class,'category_id');
+    public function subCategory() {
+        return $this->belongsTo(SubCategory::class);
+    }
+
+    public function donations() {
+        return $this->morphMany(UserDonation::class, 'donatable');
     }
 }

@@ -6,13 +6,18 @@ use App\Traits\ResourcePaginator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class FileGroupResource extends JsonResource
+class SubCategoryBranchResource extends JsonResource
 {
     use ResourcePaginator;
     public function toArray(Request $request): array
     {
         return [
             'id' => $this->id,
+            'name' => $this->name,
+            'sub_category_id' => $this->sub_category_id,
+            'description' => $this->description,
+            'donations' => UserDonationResource::collection($this->whenLoaded('donations')),
+
         ];
     }
 }

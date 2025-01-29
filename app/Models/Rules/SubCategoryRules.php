@@ -10,7 +10,6 @@ class SubCategoryRules extends BaseRules
             'category_id' => ['numeric','exists:categories,id'],
             'description' => 'nullable|string',
             'needed_amount' => 'numeric|min:0',
-            'paid_amount' => 'numeric|min:0|lte:needed_amount',
             'status' => 'string|max:255',
             'date' => 'date'
         ];

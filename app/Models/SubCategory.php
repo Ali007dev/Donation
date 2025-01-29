@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,6 +25,11 @@ class SubCategory extends Model
         'date'
     ];
 
+    public $targetWith = [
+        'donations.user',
+        'branches.donations'
+    ];
+
     protected $filterable = [
         '',
     ];
@@ -31,8 +37,16 @@ class SubCategory extends Model
     public function getPercentageAttribute()
     {
         if ($this->needed_amount == 0) {
-            return 0;  
+            return 0;
         }
         return ($this->paid_amount / $this->needed_amount) * 100;
+    }
+
+    public function branches() {
+        return $this->hasMany(SubCategoryBranch::class);
+    }
+
+    public function donations() {
+        return $this->morphMany(UserDonation::class, 'donatable');
     }
 }

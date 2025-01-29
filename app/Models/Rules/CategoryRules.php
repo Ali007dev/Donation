@@ -8,7 +8,7 @@ class CategoryRules extends BaseRules
     protected function defineRules(): array
     {
         return [
-            'name' => ['string']
+            'name' => ['string'],
         ];
     }
 

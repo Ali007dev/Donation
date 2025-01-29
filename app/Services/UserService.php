@@ -20,5 +20,14 @@ class UserService extends BaseService
       ]);
       return $user;
     }
+
+    public function me(){
+
+        $user =  User::with('donations')->findOrFail(Auth::user()->id);
+
+        return $user;
+      }
 }
+
+
 
