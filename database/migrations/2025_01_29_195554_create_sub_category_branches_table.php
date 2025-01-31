@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('sub_category_id')->constraint('sub_categories')->cascadeOnDelete();
             $table->string('name');
             $table->string('description');
-
             $table->timestamps();
         });
     }

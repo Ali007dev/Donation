@@ -11,10 +11,11 @@ class UserService extends BaseService
         parent::__construct($model);
     }
 
-    public function chargeWallet($request){
+    public function chargeWallet($request,$user){
 
-      $user =  User::where('id',Auth::user()->id)->first();
+      $user =  User::where('id',$user)->first();
 
+      //dd($user);
       $user->update([
             'wallet' =>$user->wallet + $request->amount
       ]);

@@ -23,8 +23,8 @@ class UserController extends BaseCRUDController
     }
 
 
-    public function chargeWallet(Request $request){
-     return app(UserService::class)->chargeWallet($request);
+    public function chargeWallet(Request $request,$user){
+     return app(UserService::class)->chargeWallet($request,$user);
       }
 
       public function me(){
