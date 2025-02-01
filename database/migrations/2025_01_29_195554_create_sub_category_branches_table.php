@@ -16,6 +16,9 @@ return new class extends Migration
             $table->foreignId('sub_category_id')->constraint('sub_categories')->cascadeOnDelete();
             $table->string('name');
             $table->string('description');
+            $table->decimal('needed_amount', 10, 2);
+            $table->decimal('paid_amount', 10, 2)->default(0);
+
             $table->timestamps();
         });
     }

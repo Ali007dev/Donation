@@ -16,9 +16,10 @@ return new class extends Migration
             $table->foreignId('category_id')->constraint('categories')->cascadeOnDelete();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->decimal('needed_amount', 10, 2);
+            $table->decimal('needed_amount', 10, 2)->default(0);
             $table->decimal('paid_amount', 10, 2)->default(0);
-            $table->string('status');
+            $table->boolean('status')->default(0);
+            $table->boolean('hasBranch')->default(0);
             $table->date('date');
             $table->timestamps();
 

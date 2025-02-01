@@ -15,12 +15,32 @@ class SubCategoryBranch extends Model
     protected $fillable = [
         'name',
         'description',
-        'sub_category_id'
+        'sub_category_id',
+        'needed_amount',
+        'paid_amount'
+    ];
+    protected $appends = [
+        'percentage'
     ];
 
     protected $filterable = [
         '',
     ];
+
+    public function getPercentageAttribute()
+    {
+        if ($this->needed_amount == 0) {
+            return 0;
+        }
+        if ($this->needed_amount <= $this->paid_amount ) {
+            return 100;
+        }
+        else{
+        return ($this->paid_amount / $this->needed_amount) * 100;
+        }
+    }
+
+
 
     public function subCategory() {
         return $this->belongsTo(SubCategory::class);

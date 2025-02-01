@@ -10,8 +10,10 @@ class SubCategoryRules extends BaseRules
             'category_id' => ['numeric','exists:categories,id'],
             'description' => 'nullable|string',
             'needed_amount' => 'numeric|min:0',
-            'status' => 'string|max:255',
-            'date' => 'date'
+            'status' => 'boolean',
+            'date' => 'date',
+            'hasBranch' => 'boolean',
+
         ];
     }
 

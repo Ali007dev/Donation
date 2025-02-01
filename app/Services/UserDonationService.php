@@ -59,9 +59,8 @@ class UserDonationService extends BaseService
     {
         if (request()->sub_branch_id) {
             $result = SubCategoryBranch::findOrFail(request()->sub_branch_id);
-            $subCategory = SubCategory::findOrFail($result->sub_category_id);
-            $subCategory->update([
-                'paid_amount' => $subCategory->paid_amount + $amount
+            $result->update([
+                'paid_amount' => $result->paid_amount + $amount
             ]);
         }
         if (request()->sub_category_id) {

@@ -16,6 +16,10 @@ class SubCategoryBranchResource extends JsonResource
             'name' => $this->name,
             'sub_category_id' => $this->sub_category_id,
             'description' => $this->description,
+            'paid_amount' => $this->paid_amount,
+            'needed_amount' => $this->needed_amount,
+            'percentage' => $this->percentage,
+
             'donations' => UserDonationResource::collection($this->whenLoaded('donations')),
 
         ];

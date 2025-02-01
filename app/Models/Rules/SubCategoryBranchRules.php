@@ -9,7 +9,8 @@ class SubCategoryBranchRules extends BaseRules
 
             'sub_category_id'=>['numeric','exists:sub_categories,id'],
             'name' => 'string',
-            'description' => 'string'
+            'description' => 'string',
+            'needed_amount' => ['numeric']
         ];
     }
 

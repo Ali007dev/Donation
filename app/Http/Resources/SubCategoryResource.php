@@ -20,6 +20,8 @@ class SubCategoryResource extends JsonResource
             'paid_amount' => $this->paid_amount,
             'status' => $this->status,
             'date' => $this->date,
+            'hasBranch' => $this->hasBranch,
+
             'percentage' => $this->percentage,
             'donations' => UserDonationResource::collection($this->whenLoaded('donations')),
             'branches' => SubCategoryBranchResource::collection($this->whenLoaded('branches')),

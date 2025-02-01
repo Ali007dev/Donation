@@ -22,7 +22,8 @@ class SubCategory extends Model
         'needed_amount',
         'paid_amount',
         'status',
-        'date'
+        'date',
+        'hasBranch'
     ];
 
     public $targetWith = [
@@ -39,7 +40,12 @@ class SubCategory extends Model
         if ($this->needed_amount == 0) {
             return 0;
         }
+        if ($this->needed_amount <= $this->paid_amount ) {
+            return 100;
+        }
+        else{
         return ($this->paid_amount / $this->needed_amount) * 100;
+        }
     }
 
     public function branches() {
