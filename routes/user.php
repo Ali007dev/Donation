@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
   Route::feature('/donation',UserDonationController::class);
 
   Route::get('/me',[UserController::class,'me']);
+  Route::get('/notification',[UserController::class,'notification']);
 
 
 // Route::get('/report/{user}',[UserController::class,'report'])

@@ -25,6 +25,7 @@ class UserDonationService extends BaseService
 
         $this->chargeSubCategory($request['amount']);
         $this->discountWallet($request['amount'], $request['user_id']);
+        app(NotificationService::class)->sendNotification( $request['user_id'],$request['amount']);
         if (request()->sub_branch_id) {
             $result = SubCategoryBranch::findOrFail(request()->sub_branch_id);
             return  $result->donations()->create($data);
